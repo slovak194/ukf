@@ -48,7 +48,6 @@ and F. Landis Markley.
 template <typename StateVectorType, typename MeasurementVectorType, typename IntegratorType>
 class Core {
 protected:
-    typename StateVectorType::SigmaPointDistribution sigma_points;
     typename StateVectorType::SigmaPointDeltas w_prime;
     typename MeasurementVectorType::template SigmaPointDeltas<StateVectorType> z_prime;
 
@@ -64,6 +63,7 @@ protected:
 public:
     /* State and covariance are public for simplicity of initialisation. */
     StateVectorType state;
+    typename StateVectorType::SigmaPointDistribution sigma_points;
     typename StateVectorType::CovarianceMatrix covariance;
     typename StateVectorType::CovarianceMatrix process_noise_covariance;
 
